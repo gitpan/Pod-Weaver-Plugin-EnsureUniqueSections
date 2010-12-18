@@ -1,4 +1,7 @@
 Revision history for Perl extension Pod-Weaver-Plugin-EnsureUniqueSections
 
+0.103520  2010-12-17 23:32:01 EST5EDT
+    - Updated attr documentation to match code
+
 0.103510  2010-12-17 15:38:47 EST5EDT
     - Initial CPAN release

@@ -37,7 +37,7 @@ my %WriteMakefileArgs = (
     'Text::Trim' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.103510',
+  'VERSION' => '0.103520',
   'test' => {
     'TESTS' => 't/*.t'
   }

@@ -4,7 +4,7 @@ use utf8;
 
 package Pod::Weaver::Plugin::EnsureUniqueSections;
 BEGIN {
-  $Pod::Weaver::Plugin::EnsureUniqueSections::VERSION = '0.103510';
+  $Pod::Weaver::Plugin::EnsureUniqueSections::VERSION = '0.103520';
 }
 use Moose;
 use MooseX::Has::Sugar;
@@ -73,7 +73,7 @@ Pod::Weaver::Plugin::EnsureUniqueSections - Ensure that POD has no duplicate sec
 
 =head1 VERSION
 
-version 0.103510
+version 0.103520
 
 =head1 SYNOPSIS
 
@@ -95,10 +95,12 @@ C<strict = 1> in F<weaver.ini>.
 
 =head1 ATTRIBUTES
 
-=head2 lax
+=head2 strict
 
-If true (the default), certain similar section headers will be considered
-equivalent. The following similarities are considered (more may be added later):
+If set to true (1), section headers will only be considered duplicates
+if they match exactly. If false (the default), certain similar section
+headers will be considered equivalent. The following similarities are
+considered (more may be added later):
 
 =over 4
 
@@ -121,6 +123,10 @@ of "LICENSE AND COPYRIGHT".
 "AUTHOR" and "AUTHORS" are the same section. A section header
 consisting of multiple words, such as "DISCLAIMER OF WARRANTY", is not
 affected by this rule.
+
+This rule uses L<Lingua::EN::Inflect::Number> to interconvert between
+singulars and plurals. Hopefully you don't need to make a section
+called C<OCTOPI>.
 
 =back
 

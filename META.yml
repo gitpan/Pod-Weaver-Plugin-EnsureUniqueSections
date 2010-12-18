@@ -29,4 +29,7 @@ requires:
   Text::Trim: 0
   perl: 5.008
   utf8: 0
-version: 0.103510
+resources:
+  homepage: http://github.com/DarwinAwardWinner/Pod-Weaver-Plugin-EnsureUniqueSections/tree
+  repository: git://github.com/DarwinAwardWinner/Pod-Weaver-Plugin-EnsureUniqueSections.git
+version: 0.103520
