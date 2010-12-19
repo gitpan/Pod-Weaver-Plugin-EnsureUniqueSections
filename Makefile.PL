@@ -33,11 +33,10 @@ my %WriteMakefileArgs = (
     'Moose::Autobox' => '0',
     'MooseX::Has::Sugar' => '0',
     'Pod::Weaver::Role::Finalizer' => '0',
-    'Smart::Comments' => '0',
     'Text::Trim' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.103520',
+  'VERSION' => '0.103531',
   'test' => {
     'TESTS' => 't/*.t'
   }
