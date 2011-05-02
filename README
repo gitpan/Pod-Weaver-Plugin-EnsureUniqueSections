@@ -3,7 +3,7 @@ NAME
     duplicate section headers.
 
 VERSION
-    version 0.103531
+    version 0.111220
 
 SYNOPSIS
     In weaver.ini
@@ -50,6 +50,7 @@ ATTRIBUTES
         of "LICENSE AND COPYRIGHT".
 
     Plurals
+        A plural noun is considered equivalent to its singular. For example,
         "AUTHOR" and "AUTHORS" are the same section. A section header
         consisting of multiple words, such as "DISCLAIMER OF WARRANTY", is
         not affected by this rule.

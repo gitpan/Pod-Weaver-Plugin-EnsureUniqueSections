@@ -4,7 +4,7 @@ use utf8;
 
 package Pod::Weaver::Plugin::EnsureUniqueSections;
 BEGIN {
-  $Pod::Weaver::Plugin::EnsureUniqueSections::VERSION = '0.103531';
+  $Pod::Weaver::Plugin::EnsureUniqueSections::VERSION = '0.111220';
 }
 use Moose;
 use MooseX::Has::Sugar;
@@ -36,7 +36,7 @@ sub _header_key {
         $text = $text
             ->split(qr{ AND }i)
                 ->map(sub { m{\W} ? $_ : to_S $_; })
-                    ->sort->join(" AND ");
+                    ->sort->join(' AND ');
     }
     return $text;
 }
@@ -45,7 +45,7 @@ sub _header_key {
 sub finalize_document {
     my ($self, $document) = @_;
     my $headers = $document->children
-        ->grep(sub{ $_->command eq 'head1' })
+        ->grep(sub{ $_->can( 'command' ) and $_->command eq 'head1' })
             ->map(sub{ $_->content });
     my %header_group;
     for my $h (@$headers) {
@@ -74,7 +74,7 @@ Pod::Weaver::Plugin::EnsureUniqueSections - Ensure that POD has no duplicate sec
 
 =head1 VERSION
 
-version 0.103531
+version 0.111220
 
 =head1 SYNOPSIS
 
@@ -94,7 +94,7 @@ warn you.
 
 By default, this module does some tricks to detect similar headers,
 such as C<AUTHOR> and C<AUTHORS>. You can turn this off by setting
-C<strict = 1> in F<weaver.ini>, in which case only *exactly identical*
+C<strict = 1> in F<weaver.ini>, in which case only I<exactly identical>
 headers will be considered duplicates of each other.
 
 =head2 DIAGNOSTIC MESSAGES
@@ -133,6 +133,7 @@ of "LICENSE AND COPYRIGHT".
 
 =item Plurals
 
+A plural noun is considered equivalent to its singular. For example,
 "AUTHOR" and "AUTHORS" are the same section. A section header
 consisting of multiple words, such as "DISCLAIMER OF WARRANTY", is not
 affected by this rule.
