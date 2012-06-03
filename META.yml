@@ -6,29 +6,43 @@ build_requires:
   English: 0
   File::Find: 0
   File::Temp: 0
+  PPI: 0
+  Pod::Elemental: 0
+  Pod::Elemental::Selectors: 0
+  Pod::Elemental::Transformer::Nester: 0
+  Pod::Elemental::Transformer::Pod5: 0
+  Pod::Weaver: 0
   Scalar::Util: 0
+  Software::License::Artistic_1_0: 0
+  Test::Exception: 0
   Test::More: 0.94
   perl: 5.004
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
+  ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.102400'
+generated_by: 'Dist::Zilla version 4.300015, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Pod-Weaver-Plugin-EnsureUniqueSections
+no_index:
+  directory:
+    - corpus
 requires:
   Carp: 0
   Lingua::EN::Inflect::Number: 0
   Moose: 0
-  Moose::Autobox: 0
+  Moose::Autobox: 0.10
   MooseX::Has::Sugar: 0
   Pod::Weaver::Role::Finalizer: 0
+  Pod::Weaver::Role::Preparer: 0
   Text::Trim: 0
   perl: 5.008
+  strict: 0
   utf8: 0
+  warnings: 0
 resources:
-  homepage: http://github.com/DarwinAwardWinner/Pod-Weaver-Plugin-EnsureUniqueSections/tree
-  repository: git://github.com/DarwinAwardWinner/Pod-Weaver-Plugin-EnsureUniqueSections.git
-version: 0.111220
+  homepage: https://github.com/DarwinAwardWinner/Pod-Weaver-Plugin-EnsureUniqueSections
+  repository: https://github.com/DarwinAwardWinner/Pod-Weaver-Plugin-EnsureUniqueSections.git
+version: 0.121550

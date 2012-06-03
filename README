@@ -3,7 +3,7 @@ NAME
     duplicate section headers.
 
 VERSION
-    version 0.111220
+    version 0.121550
 
 SYNOPSIS
     In weaver.ini
@@ -63,6 +63,19 @@ ATTRIBUTES
     would be a duplicate of " CONTRIBUTORS AND AUTHOR".
 
 METHODS
+  prepare_input
+    This method modifies the weaver object by moving EnsureUniqueSections to
+    the end of the weaver's plugin list to ensure that it gets to look at
+    the final woven POD.
+
+    THIS IS PURE EVIL. This is a hack to ensure that this plugin gets "the
+    last word". Obviously if all plugins used this it would be total chaos.
+    I welcome alternative suggestions. The main issue is that when other
+    Finalizers, such as Section::Leftovers (which happens to be the most
+    likely plugin to create duplicate sections), produce sections, this
+    plugin will only see those sections if it runs after those Finalizers.
+    Hence the need to be the last plugin on the list.
+
   finalize_document
     This method checks the document for duplicate headers, and throws an
     error if any are found. If no duplicates are found, it simply does
@@ -87,7 +100,10 @@ BUGS AND LIMITATIONS
     "rct+perlbug@thompsonclan.org".
 
 SEE ALSO
-    *   Pod::Weaver
+    *   Pod::Weaver - The module that this is a plugin for.
+
+    *   Lingua::EN::Inflect::Number - Used to determine the singular forms
+        of plural nouns.
 
 INSTALLATION
     See perlmodinstall for information and options on installing Perl
